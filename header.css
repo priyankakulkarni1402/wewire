@@ -1,0 +1,228 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    padding: 0 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    z-index: 1000;
+    transition: box-shadow 0.3s ease;
+}
+.abc {
+    position: relative;
+    padding-left: 10px;
+    top: 19px;
+    left: -181px;
+    color: #0b0707;
+    font-size: medium;
+}
+
+.c-meta-nav__subtitle::after {
+    z-index: 1;
+    position: absolute;
+    top: 8px;
+    left: 15px;
+    display: block;
+    width: 15px;
+    height: 1px;
+    background-color: #adadad;
+    content: "";
+    pointer-events: none
+}
+
+/* LOGO */
+.logo {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #e60023;
+}
+
+/* NAV LINKS */
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding: 5px 0;
+}
+
+/* UNDERLINE ANIMATION */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #e60023;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* ================= MEGA MENU ================= */
+.dropdown {
+    position: relative;
+}
+
+/* Popup container */
+.mega-menu {
+    position: absolute;
+    top: 63px;
+    left: -242%;
+    transform: translate(-50%, 20px);
+    width: 100vw;
+    background:rgb(90, 90, 90);
+    padding: 45px 120px;
+    display: flex;
+    gap: 111px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.35s ease;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12);
+    z-index: 999;
+}
+
+/* Show popup on hover */
+.dropdown:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+
+/* Menu columns */
+.menu-column h4 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: hwb(0 95% 2%);
+    letter-spacing: 1.5px;
+    /* font-style: ; */
+    /* text-transform: uppercase; */
+}
+.menu-column h4:hover{
+    color: #e60023;
+    display: block;
+    filter: drop-shadow(0 0 10px #ca4848);
+
+}
+
+
+.menu-column a {
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 12px;
+    transition: color 0.25s ease;
+}
+
+.menu-column a:hover {
+    color: #211214;
+}
+
+/* ================= HERO SECTION ================= */
+.hero {
+    height: 100vh;
+    background: url("images/hero.jpg") center / cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+}
+
+/* Dark overlay */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* Hero text */
+.hero-content {
+    position: relative;
+    color: #fff;
+    max-width: 600px;
+}
+
+/* Text animations */
+.small-title {
+    font-size: 13px;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeUp 1s forwards;
+}
+
+.hero-title {
+    font-size: 52px;
+    margin: 14px 0;
+    font-weight: 500;
+    opacity: 0;
+    animation: fadeUp 1s 0.3s forwards;
+}
+
+.hero-desc {
+    font-size: 16px;
+    line-height: 1.7;
+    opacity: 0;
+    animation: fadeUp 1s 0.6s forwards;
+}
+
+/* Animation keyframes */
+@keyframes fadeUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 38px;
+    }
+
+    .hero {
+        padding-left: 40px;
+    }
+}
